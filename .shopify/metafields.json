@@ -1,0 +1,26 @@
+{
+  "article": [],
+  "blog": [],
+  "brand": [],
+  "collection": [],
+  "company": [],
+  "company_location": [],
+  "location": [],
+  "market": [],
+  "order": [],
+  "page": [],
+  "product": [
+    {
+      "key": "special_color",
+      "namespace": "custom",
+      "name": "special color",
+      "description": "",
+      "type": {
+        "name": "color",
+        "category": "COLOR"
+      }
+    }
+  ],
+  "variant": [],
+  "shop": []
+}

@@ -240,6 +240,46 @@
         "slider_RqKd6M"
       ],
       "settings": {}
+    },
+    "our_journals_mtR6qf": {
+      "type": "our-journals",
+      "blocks": {
+        "image_text_TfbjAU": {
+          "type": "image_text",
+          "settings": {
+            "journals_image": "shopify://shop_images/blog8_1.png",
+            "journals_link_text": "khushi",
+            "journals_link_url": "",
+            "journals_caption": "gupta"
+          }
+        },
+        "image_text_cVbFHj": {
+          "type": "image_text",
+          "settings": {
+            "journals_image": "shopify://shop_images/blog9.png",
+            "journals_link_text": "khushi",
+            "journals_link_url": "",
+            "journals_caption": "gupta"
+          }
+        },
+        "image_text_PnEeED": {
+          "type": "image_text",
+          "settings": {
+            "journals_image": "shopify://shop_images/blog7_2.png",
+            "journals_link_text": "khushi",
+            "journals_link_url": "",
+            "journals_caption": "gupta"
+          }
+        }
+      },
+      "block_order": [
+        "image_text_TfbjAU",
+        "image_text_cVbFHj",
+        "image_text_PnEeED"
+      ],
+      "settings": {
+        "section_heading": "Our Journals"
+      }
     }
   },
   "order": [
@@ -249,6 +289,7 @@
     "featured_collection",
     "custom_collection_list_pAkeVU",
     "veena_slider_section_hzWqpw",
-    "custom_slider_aATJc4"
+    "custom_slider_aATJc4",
+    "our_journals_mtR6qf"
   ]
 }

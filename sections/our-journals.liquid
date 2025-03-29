@@ -1,0 +1,120 @@
+{{ 'our-journals.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section class="our-journals-section page-width section-{{ section.id }}-padding">
+  <div class="our-journals__header">
+    {% if section.settings.section_heading != blank %}
+      <h2 class="our-journals__title">{{ section.settings.section_heading }}</h2>
+    {% endif %}
+
+    {% assign blogs_url = routes.blogs_url %}
+    {% if blogs_url != blank %}
+      <div class="our-journals__view-all">
+        <a href="{{ blogs_url }}" class="our-journals__btn">View all</a>
+      </div>
+    {% else %}
+      <div class="our-journals__view-all">
+        <a href="/blogs" class="our-journals__btn">View all</a>
+      </div>
+    {% endif %}
+  </div>
+
+  <div class="our-journals__grid">
+    {% for block in section.blocks %}
+      <div class="our-journals__item" {{ block.shopify_attributes }}>
+        {% if block.settings.journals_image != blank %}
+          <div class="our-journals__image-container">
+            <div class="our-journals__image-wrapper">
+              <a href="{{ block.settings.journals_link_url | default: '#' }}" class="our-journals__link">
+                {% render 'responsive-picture', desktopImage: block.settings.journals_image %}
+              </a>
+            </div>
+          </div>
+        {% endif %}
+        <div class="our-journals__content">
+          <h3 class="our-journals__article-title">
+            <a href="{{ block.settings.journals_link_url | default: '#' }}" class="our-journals__text-link">
+              {{ block.settings.journals_link_text | default: 'Untitled Journal' }}
+            </a>
+          </h3>
+
+          {% if block.settings.journals_caption != blank %}
+            <p class="our-journals__caption">{{ block.settings.journals_caption }}</p>
+          {% endif %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Our Journals",
+  "tag": "section",
+  "class": "our-journals",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Section Heading",
+      "default": "Our Journals"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+  ],
+  "blocks": [
+    {
+      "type": "image_text",
+      "name": "Image & Text Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "journals_image",
+          "label": "Choose an Image",
+          "info": "Recommended size: 410px × 279px"
+        },
+        {
+          "type": "text",
+          "id": "journals_link_text",
+          "label": "Title Text"
+        },
+        {
+          "type": "url",
+          "id": "journals_link_url",
+          "label": "Blog Link"
+        },
+        {
+          "type": "text",
+          "id": "journals_caption",
+          "label": "Caption"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Our Journals",
+      "blocks": [
+        { "type": "image_text" },
+        { "type": "image_text" },
+        { "type": "image_text" }
+      ]
+    }
+  ]
+}
+{% endschema %}
