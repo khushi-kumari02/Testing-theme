@@ -1,0 +1,195 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "rich_text_97qUCA": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_rcrJq8": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>1st Week Assessment </strong>",
+            "heading_size": "h1"
+          }
+        },
+        "text_rKXKYN": {
+          "type": "text",
+          "settings": {
+            "text": "<p>This is a <strong>front-end shopping cart application </strong>designed to simulate an e-commerce experience. Users can browse products, add them to the cart, adjust quantities, and view the total cost. The application is responsive, and user-friendly, making it ideal for small-scale e-commerce websites or as a learning project for web development</p>"
+          }
+        },
+        "button_Mr6DCz": {
+          "type": "button",
+          "settings": {
+            "button_label": "Demo Link",
+            "button_link": "https://shopping-cart-asses1.vercel.app/",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_rcrJq8",
+        "text_rKXKYN",
+        "button_Mr6DCz"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "rich_text_dYxrwy": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_giPFbX": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>2nd Week Assessment </strong>",
+            "heading_size": "h1"
+          }
+        },
+        "text_xHeVnL": {
+          "type": "text",
+          "settings": {
+            "text": "<p>This is a <strong>front-end web application </strong>that showcases a visually appealing slider with accompanying text. The slider is powered by the <strong>SplideJS library</strong>, which provides seamless transitions, responsive behavior, and customizable options. The project is user-friendly.</p>"
+          }
+        },
+        "button_GKhnNk": {
+          "type": "button",
+          "settings": {
+            "button_label": "Demo Link",
+            "button_link": "https://slider-with-text.vercel.app/",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_giPFbX",
+        "text_xHeVnL",
+        "button_GKhnNk"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "rich_text_wWzqUq": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_WCjLgL": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>3rd Week Assessment </strong>",
+            "heading_size": "h1"
+          }
+        },
+        "text_Vg9ijg": {
+          "type": "text",
+          "settings": {
+            "text": "<p>This project is an <strong>Interactive Image Gallery </strong>built using<strong>HTML</strong>,<strong>CSS</strong>, and <strong>JavaScript</strong>. It allows users to search for images, displays similar products based on the search, and includes a feature to mark images as favorites.</p>"
+          }
+        },
+        "button_FpJEqF": {
+          "type": "button",
+          "settings": {
+            "button_label": "Demo Link",
+            "button_link": "https://l2-assessment3.vercel.app/",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_WCjLgL",
+        "text_Vg9ijg",
+        "button_FpJEqF"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "rich_text_JWwzC8": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_b9U8Kr": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>4th Week Assessment</strong>",
+            "heading_size": "h1"
+          }
+        },
+        "text_XKEdbj": {
+          "type": "text",
+          "settings": {
+            "text": "<p>This <strong>Image Gallery</strong> allows users to dynamically add images with names, store them in <strong>Local Storage</strong>, and filter images by name.it is <strong>Fully Responsive</strong> – Optimized for desktop, tablet, and mobile views.</p><p></p><p></p>"
+          }
+        },
+        "button_NUjxEJ": {
+          "type": "button",
+          "settings": {
+            "button_label": "Demo Link",
+            "button_link": "shopify://pages/assessmentpage",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_b9U8Kr",
+        "text_XKEdbj",
+        "button_NUjxEJ"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "main",
+    "rich_text_97qUCA",
+    "rich_text_dYxrwy",
+    "rich_text_wWzqUq",
+    "rich_text_JWwzC8"
+  ]
+}

@@ -1,0 +1,65 @@
+.veena-slider-section__wrapper {
+  position: relative;
+  max-width: 1100px;
+  margin: auto;
+  overflow: hidden;
+}
+
+.veena-slider-section__flex-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.veena-slider-section__splide-track {
+  position: relative;
+  width: 100%;
+}
+
+.veena-slider-section__splide-track img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.veena-slider-section__text-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 80%;
+}
+
+.veena-slider-section__heading {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.veena-slider-section__description {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+}
+
+.veena-slider-section__button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  background: var(--button-color-background, #fff);
+  color: var(--button-color, #000000);
+  border-radius: 5px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+/* .veena-slider-section__button:hover {
+  background: #e62e5c;
+}
+ */

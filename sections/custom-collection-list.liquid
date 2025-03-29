@@ -1,0 +1,40 @@
+{{ 'section-custom-collection-list.css' | asset_url | stylesheet_tag }}
+
+<section class="custom-collection-list__container page-width">
+  <h2 class="custom-collection-list__heading center font-body-bold">Curated Just for You</h2>
+  <div class="custom-collection-list__main-content grid grid--1-col grid--3-col-desktop">
+    <div class="custom-collection-list__card grid__item center ">
+      <img
+        src="https://levi.in/cdn/shop/files/Shirts_3Door_Desktop.jpg"
+        alt=""
+        class="custom-collection-list__card-image"
+      >
+    </div>
+    <div class="custom-collection-list__card grid__item center ">
+      <img
+        src="https://levi.in/cdn/shop/files/ElevatedBasics_3Door_Desktop.jpg?v=1739339573"
+        alt=""
+        class="custom-collection-list__card-image"
+      >
+    </div>
+    <div class="custom-collection-list__card grid__item center ">
+      <img
+        src="https://levi.in/cdn/shop/files/DenimDressing_3Door_Desktop.jpg?v=1739339589"
+        alt=""
+        class="custom-collection-list__card-image"
+      >
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Custom collection list",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Custom collection list"
+    }
+  ]
+}
+{% endschema %}
