@@ -199,10 +199,6 @@
       "type": "custom-collection-list",
       "settings": {}
     },
-    "veena_slider_section_hzWqpw": {
-      "type": "veena-slider-section",
-      "settings": {}
-    },
     "custom_slider_aATJc4": {
       "type": "custom-slider",
       "blocks": {
@@ -239,6 +235,7 @@
         "slider_q7gHQN",
         "slider_RqKd6M"
       ],
+      "disabled": true,
       "settings": {}
     },
     "our_journals_mtR6qf": {
@@ -277,8 +274,61 @@
         "image_text_cVbFHj",
         "image_text_PnEeED"
       ],
+      "disabled": true,
       "settings": {
         "section_heading": "Our Journals"
+      }
+    },
+    "tab_switching_Utg34r": {
+      "type": "tab-switching",
+      "blocks": {
+        "tab_N7FJH6": {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Syrups",
+            "collection": "syrups"
+          }
+        },
+        "tab_DBWJdf": {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Jams & Spreads",
+            "collection": "jams-spreads"
+          }
+        },
+        "tab_wfdETA": {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Fruit Chews",
+            "collection": "fruit-chews"
+          }
+        },
+        "tab_EkGqRL": {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Snacks",
+            "collection": "snacks"
+          }
+        },
+        "tab_qq6geW": {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Chocolates",
+            "collection": "chocolates"
+          }
+        }
+      },
+      "block_order": [
+        "tab_N7FJH6",
+        "tab_DBWJdf",
+        "tab_wfdETA",
+        "tab_EkGqRL",
+        "tab_qq6geW"
+      ],
+      "settings": {
+        "heading": "Fresh From The Source",
+        "padding_top": 40,
+        "padding_bottom": 36
       }
     }
   },
@@ -288,8 +338,8 @@
     "image_banner",
     "featured_collection",
     "custom_collection_list_pAkeVU",
-    "veena_slider_section_hzWqpw",
     "custom_slider_aATJc4",
-    "our_journals_mtR6qf"
+    "our_journals_mtR6qf",
+    "tab_switching_Utg34r"
   ]
 }

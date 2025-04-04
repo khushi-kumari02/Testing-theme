@@ -1,0 +1,107 @@
+{% comment %} <div class="custom-product-card-wrapper">
+    <a href="{{ product.url }}" class="custom-product-card__image">
+      {% render 'responsive-picture', desktopImage: product.featured_image, class: "image-fit" %}
+    </a>
+  
+    <div class="custom-product-card__info">
+      <a href="{{ product.url }}">
+        <h4 class="custom-product-card__title">
+          {{ product.title }}
+        </h4>
+      </a>
+  
+      <!-- ✨ Product Rating -->
+      {% if product.metafields.reviews.rating %}
+        <div class="custom-product-card__rating">
+          {% assign rating = product.metafields.reviews.rating.value | round: 1 %}
+          {% for i in (1..5) %}
+            {% if i <= rating %}
+              <span class="star filled">★</span>
+            {% else %}
+              <span class="star">★</span>
+            {% endif %}
+          {% endfor %}
+          <span class="rating-value">{{ rating }}</span>
+        </div>
+      {% endif %}
+  
+      <div class="custom-product-card__pricing">
+        <span class="custom-product-card__price">
+          {{ product.price | money_with_currency }}
+        </span>
+  
+        {% if product.compare_at_price > product.price %}
+          <br>
+          <strike class="custom-product-card__compare-price">
+            {{ product.compare_at_price | money_with_currency }}
+          </strike>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+   {% endcomment %}
+
+   <div class="custom-product-card-wrapper product-card">
+    <a href="{{ product.url }}" class="custom-product-card__image">
+      {% render 'responsive-picture', desktopImage: product.featured_image, class: "image-fit" %}
+  
+      <!-- Add to Bag Button (shows on hover) -->
+      <div class="hover-add-to-cart-form">
+        <button
+          type="button"
+          class="hover-add-to-cart-btn"
+          onclick="addToCart('{{ product.variants.first.id }}')"
+        >
+          ADD TO BAG
+        </button>
+      </div>
+    </a>
+  
+    <div class="custom-product-card__info">
+      <!-- Product Title -->
+      <a href="{{ product.url }}">
+        <h4 class="custom-product-card__title">
+          {{ product.title }}
+        </h4>
+      </a>
+  
+      <!-- Product Rating (if available) -->
+      {% if product.metafields.reviews.rating %}
+        <div class="custom-product-card__rating">
+          {% assign rating = product.metafields.reviews.rating.value | round: 1 %}
+          {% for i in (1..5) %}
+            {% if i <= rating %}
+              <span class="star filled">★</span>
+            {% else %}
+              <span class="star">★</span>
+            {% endif %}
+          {% endfor %}
+          <span class="rating-value">{{ rating }}</span>
+        </div>
+      {% endif %}
+  
+      <!-- Pricing -->
+      <div class="custom-product-card__pricing">
+        <span class="custom-product-card__price">
+          {{ product.price | money_with_currency }}
+        </span>
+  
+        {% if product.compare_at_price > product.price %}
+          <br>
+          <strike class="custom-product-card__compare-price">
+            {{ product.compare_at_price | money_with_currency }}
+          </strike>
+        {% endif %}
+      </div>
+  
+      <!-- Variant Dropdown -->
+      <div class="custom-product-card__variants">
+        <label for="product-variant-{{ product.id }}"></label>
+        <select class="product-variant" id="product-variant-{{ product.id }}">
+          <option value="750ml">750ml</option>
+          <option value="1000ml">1000ml</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  
