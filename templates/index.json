@@ -197,6 +197,7 @@
     },
     "custom_collection_list_pAkeVU": {
       "type": "custom-collection-list",
+      "disabled": true,
       "settings": {}
     },
     "custom_slider_aATJc4": {

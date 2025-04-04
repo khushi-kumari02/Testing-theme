@@ -17,9 +17,6 @@
   }
 {%- endstyle -%}
 
-
-
-
 {% liquid
     assign blocks = section.blocks
   %}
@@ -69,6 +66,11 @@
                       {% render 'custom-card-product', product: product %}
                     </li>
                   {%- endfor -%}
+
+                  <!-- View All Slide -->
+                  <li class="splide__slide view-all">
+                  <a href="{{ collections[block.settings.collection].url }}">View All →</a>
+                  </li>
                 </ul>
               </div>
             </div>
