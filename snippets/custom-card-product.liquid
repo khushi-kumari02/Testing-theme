@@ -23,20 +23,23 @@
     </a>
 
     <!-- Product Rating (if available) -->
-    {% if product.metafields.reviews.rating %}
       <div class="custom-product-card__rating">
-        {% assign rating = product.metafields.reviews.rating.value | round: 1 %}
-        {% for i in (1..5) %}
-          {% if i <= rating %}
-            <span class="star filled">★</span>
-          {% else %}
-            <span class="star">★</span>
-          {% endif %}
-        {% endfor %}
-        <span class="rating-value">{{ rating }}</span>
+        {% comment %} {{ product.metafields.my_store.product_rating  }}
+        {% assign rating = product.metafields.my_store.product_rating.value | plus:0 | round %} {% endcomment %}
+        {% assign raw_rating = product.metafields.my_store.product_rating | append:'' %}
+        {{raw_rating }}
+        {% comment %} {%assign rating = raw_rating | times: 1.0 %} {% endcomment %}
+        {% comment %} {{"4.8" | times:1.0 | round }} {% endcomment %}
+        {% comment %} {% assign rating_rounded = rating_float | round %} {% endcomment %}
+        <p>rating:{{rating }}</p>
+        {% comment %} <p>Raw: {{ raw_rating }}</p> {% endcomment %}
+        {% comment %} <p>As float: {{ rating_float }}</p> {% endcomment %}
+        {% comment %} <p>Rounded: {{ rating_rounded }}</p> {% endcomment %}
+        
+        {% comment %} {% for i in (1..rating) %}
+            <span class="star filled">a</span>
+        {% endfor %} {% endcomment %}
       </div>
-    {% endif %}
-
     <!-- Pricing -->
     <div class="custom-product-card__pricing">
       <span class="custom-product-card__price">

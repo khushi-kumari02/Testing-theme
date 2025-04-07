@@ -27,7 +27,7 @@
 
 
 
-.mm-featured-collection__wrapper hr {
+.custom-product-card__wrapper hr {
     margin: 1rem 0;
 }
 
@@ -74,7 +74,7 @@ input[type="radio"].color-input {
 
 /* When the radio button is selected, apply a border to the swatch */
 input[type="radio"].color-input:checked+.color-swatch {
-    border: 3px solid #000;
+    border: 3px solid;
 }
 
 /* Optional: Add a wrapper for the fieldsets to align them horizontally */
