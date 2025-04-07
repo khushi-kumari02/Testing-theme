@@ -1,0 +1,92 @@
+{% comment %} 
+ 
+ TODO: 1. Make product card as per design. - {% assign product = product.selected_or_first_available_variant %}
+ TODO: 2. Implement swatches with Shopify metaobject.
+
+ TODO: NERDS : Existing variant selector, of PDP. ATC, BB.
+
+{% endcomment %}
+
+<div class="custom-product-card-wrapper">
+    <a href="{{ product.url }}" class="custom-product-card__image isolate">
+      {% render 'responsive-picture', desktopImage: product.featured_image, class: 'image-fit' %}
+    </a> 
+    {%- if show_badge_on_sale and product.price < product.compare_at_price -%}
+      {% assign badge_text = 'ON Sale' %}
+      {% assign discount_badge = product.compare_at_price
+        | minus: product.price
+        | times: 100
+        | divided_by: product.compare_at_price
+      %}
+  
+      {% assign variable_name = value %}
+      <div class="badge">
+        {{ badge_text }}
+      </div>
+      <div class="badge">
+        {{ discount_badge | append: ' %Off' }}
+      </div>
+    {%- endif -%}
+  
+    {% comment %} Custom badges {% endcomment %}
+    {% for tag in product.tags %}
+      {%- if tag contains 'badge--' -%}
+        {% assign badge_custom_text = tag | split: '--' | last %}
+      {%- endif -%}
+    {% endfor %}
+  
+    {% if badge_custom_text != blank %}
+      <hr>
+      <div class="badge">
+        {{ badge_custom_text }}
+      </div>
+    {% endif %}
+  
+    {% assign badge_custom_text_meta = product.metafields.custom.badge %}
+    {%- if badge_custom_text_meta != blank -%}
+      <hr>
+      <div class="badge">
+        {{ badge_custom_text_meta }}
+      </div>
+    {%- endif -%}
+  
+    <div class="custom-product-card__info">
+      <a href="{{ product.url }}">
+        <h4>
+          {{ product.title }}
+        </h4>
+      </a>
+  
+      <span>{{ product.price | money_with_currency }}</span>
+      <br>
+      <strike>{{ product.compare_at_price | money_with_currency }}</strike>
+    </div>
+    <hr>
+    {% comment %} Variant selector {% endcomment %}
+    {% for option in product.options_with_values %}
+      {% assign option_name = option.name | handleize %}
+  
+      {%- if option_name == 'color' -%}
+        <fieldset class="fieldset">
+          <legend>{{ option.name }}</legend>
+          {% for value in option.values %}
+            <label
+              for="color-red"
+              class="color-swatch"
+              style="{% if value.swatch.image != blank %}
+                background: url('{{ value.swatch.image | image_url: height: 100, width: 100 }}');
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+              {% else %}
+                background-color: {{ value.swatch.color }};
+              {% endif %}"
+            >
+            </label>
+  
+            <input type="radio" id="color-red" name="color" class="color-input" value="{{ value }}">
+          {% endfor %}
+        </fieldset>
+      {%- endif -%}
+    {% endfor %}
+  </div>

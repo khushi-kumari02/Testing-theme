@@ -2,7 +2,18 @@
   "article": [],
   "blog": [],
   "brand": [],
-  "collection": [],
+  "collection": [
+    {
+      "key": "rating",
+      "namespace": "reviews",
+      "name": "Collection Rating",
+      "description": "",
+      "type": {
+        "name": "number_decimal",
+        "category": "NUMBER"
+      }
+    }
+  ],
   "company": [],
   "company_location": [],
   "location": [],
@@ -18,6 +29,36 @@
       "type": {
         "name": "color",
         "category": "COLOR"
+      }
+    },
+    {
+      "key": "product_reviews",
+      "namespace": "my_store",
+      "name": "Reviews",
+      "description": "",
+      "type": {
+        "name": "rating",
+        "category": "RATING"
+      }
+    },
+    {
+      "key": "product_rating",
+      "namespace": "my_store",
+      "name": "Rating ",
+      "description": "",
+      "type": {
+        "name": "rating",
+        "category": "RATING"
+      }
+    },
+    {
+      "key": "badges",
+      "namespace": "custom",
+      "name": "Badges",
+      "description": "",
+      "type": {
+        "name": "list.single_line_text_field",
+        "category": "TEXT"
       }
     }
   ],

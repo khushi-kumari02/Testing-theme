@@ -331,6 +331,35 @@
         "padding_top": 40,
         "padding_bottom": 36
       }
+    },
+    "custom_product_card_cDf3yb": {
+      "type": "custom-product-card",
+      "blocks": {
+        "tab_Brd6Q8": {
+          "type": "Tab",
+          "settings": {
+            "tab_title": "latest collection",
+            "collection": "best-seller"
+          }
+        },
+        "tab_yJXHNT": {
+          "type": "Tab",
+          "settings": {
+            "tab_title": "Most selling product",
+            "collection": "chocolates"
+          }
+        }
+      },
+      "block_order": [
+        "tab_Brd6Q8",
+        "tab_yJXHNT"
+      ],
+      "settings": {
+        "section_heading": "Featured Collection",
+        "show_badge_on_sale": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
@@ -341,6 +370,7 @@
     "custom_collection_list_pAkeVU",
     "custom_slider_aATJc4",
     "our_journals_mtR6qf",
-    "tab_switching_Utg34r"
+    "tab_switching_Utg34r",
+    "custom_product_card_cDf3yb"
   ]
 }

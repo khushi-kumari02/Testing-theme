@@ -1,0 +1,84 @@
+.custom-product-card__wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.custom-product-card__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.custom-product-card__header-tab-wrapper {
+    display: flex;
+    gap: 3rem;
+}
+
+.custom-product-card__header-tab-wrapper span {
+    cursor: pointer;
+}
+
+
+.custom-hidden {
+    display: none;
+}
+
+
+
+
+.mm-featured-collection__wrapper hr {
+    margin: 1rem 0;
+}
+
+/* Product card css */
+
+/* Apply flexbox to the fieldsets to align them side by side */
+.fieldset {
+    display: flex;
+    align-items: flex-start;
+    margin-right: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.fieldset legend {
+    font-weight: bold;
+}
+
+/* Style the radio buttons and labels */
+input[type="radio"] {
+    margin-right: 5px;
+}
+
+label {
+    margin-bottom: 10px;
+}
+
+/* Style for the color swatches */
+.color-swatch {
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Remove the default radio buttons and hide them */
+input[type="radio"].color-input {
+    display: none;
+}
+
+/* When the radio button is selected, apply a border to the swatch */
+input[type="radio"].color-input:checked+.color-swatch {
+    border: 3px solid #000;
+}
+
+/* Optional: Add a wrapper for the fieldsets to align them horizontally */
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+}
