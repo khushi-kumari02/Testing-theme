@@ -122,6 +122,7 @@
   pointer-events: none;
   transition: opacity 0.3s ease;
   z-index: 2;
+  width: 100%;
 }
 
 .custom-product-card__image:hover .hover-add-to-cart-form {
@@ -130,21 +131,28 @@
 }
 
 
+
 .hover-add-to-cart-btn {
-  padding: 0.75rem 1.5rem;
   background-color: #000;
   color: #fff;
   font-family: 'Satoshi', sans-serif;
-  font-weight: 500;
   font-size: 14px;
   letter-spacing: 0.05em;
   border: none;
   cursor: pointer;
   border-radius: 4px;
+  border: none;
+  padding: 14px 20px;
+  font-weight: 600;
+  border-radius: 30px;
+  text-transform: uppercase;
+  width: 100%;
+
 }
 
 .hover-add-to-cart-btn:hover {
   background-color: #222;
+  width: 100%;
 }
 
 @media screen and (max-width: 749px) {
@@ -171,16 +179,24 @@
 
 /* === Title === */
 .custom-product-card__title {
-  font-size: 1.2rem;
-  font-weight: 600;
+  font-size: 1.25rem;
+  font-weight: 700;
   color: #131517;
-  margin: 0.6rem 0;
-  line-height: 1.5;
+  margin: 0.5rem 0 0.3rem;
+  line-height: 1.6;
+  text-align: left;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  word-break: break-word;
+  font-family: 'Segoe UI', 'Helvetica Neue', sans-serif,'Satoshi';
+  text-decoration: none;
 }
+
 
 @media screen and (max-width: 749px) {
   .custom-product-card__title {
-    font-size: 1rem;
+    font-size: 1.05rem;
   }
 }
 
@@ -218,11 +234,16 @@
 /* === Pricing === */
 .custom-product-card__pricing {
   margin-top: 0.5rem;
-  font-size: 1rem;
+  font-size: 1.2rem;
   display: flex;
-  justify-content: center;
+  justify-content: end;
   gap: 0.5rem;
-  align-items: center;
+  align-items: end;
+  font-weight: 700;
+  color: #000;
+  margin: 15px;
+  white-space: nowrap;
+  line-height: 18px;
 }
 
 @media screen and (max-width: 749px) {
@@ -244,18 +265,23 @@
   font-size: 0.95rem;
 }
 
+
 /* === Variant Dropdown === */
 .custom-product-card__variants {
   display: flex;
-  flex-direction: column;
-  gap: 6px;
-  position: relative;
+  justify-content: flex-end;         
+  margin-top: auto;                
+  width: 100%;                       
+  padding-right: 0.5rem;            
+  position: absolute;                
+  bottom: 1rem;
+  right: 0;
   z-index: 1;
-  margin-top: 0.75rem;
+  width: 25%;
 }
 
 .product-variant {
-  padding: 6px 12px;
+  padding: 6px 8px;
   border: 1px solid #ddd;
   border-radius: 9999px;
   font-size: 14px;
@@ -263,12 +289,12 @@
   appearance: none;
   background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%23333' stroke-width='1.5'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
-  background-position: right 12px center;
+  background-position: right 5px center;
   background-size: 12px 8px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
   cursor: pointer;
   outline: none;
-  width: 100%;
+  width: 100%;                      
 }
 
 /* Hide the default dropdown arrow in IE */
@@ -280,10 +306,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #000; /* light gray background */
+  background-color: #000; 
   border-radius: 8px;
   padding: 20px;
-  min-height: 200px; /* adjust based on your slide height */
+  min-height: 200px;
   transition: background-color 0.3s ease, transform 0.3s ease;
   cursor: pointer;
 }
@@ -324,6 +350,8 @@
 
 .rating-value {
   font-size: 14px;
-  color: #444;
+  color: #131517;
   margin-left: 4px;
 }
+
+

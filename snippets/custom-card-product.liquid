@@ -2,17 +2,48 @@
   <a href="{{ product.url }}" class="custom-product-card__image">
     {% render 'responsive-picture', desktopImage: product.featured_image, class: 'image-fit' %}
 
-    <!-- Add to Bag Button (shows on hover) -->
-    <div class="hover-add-to-cart-form">
-      <button
-        type="button"
-        class="hover-add-to-cart-btn"
-        onclick="addToCart('{{ product.variants.first.id }}')"
-      >
-        ADD TO BAG
-      </button>
-    </div>
+        <!-- Add to Bag Button (shows on hover) -->
+        <div class="hover-add-to-cart-form">
+          <button
+            type="button"
+            class="hover-add-to-cart-btn"
+            onclick="addToCart('{{ product.variants.first.id }}')"
+          >
+            ADD TO BAG
+          </button>
+        </div>
   </a>
+
+       <!-- Info -->
+       <div class="custom-product-card__info">
+        <!-- Brand & Type -->
+        <div class="custom-product-card__vendor-type">
+          {% if product.vendor != blank %}
+            {{ product.vendor }}
+          {% endif %}
+          {% if product.vendor != blank and product.type != blank %}
+            &bull;
+          {% endif %}
+          {% if product.type != blank %}
+            {{ product.type }}
+          {% endif %}
+        </div>
+      </div>
+      
+      <!-- Pricing -->
+      <div class="custom-product-card__pricing">
+        <span class="custom-product-card__price">
+          {{ product.price | money_with_currency }}
+        </span>
+  
+        {% if product.compare_at_price > product.price %}
+          <br>
+          <strike class="custom-product-card__compare-price">
+            {{ product.compare_at_price | money_with_currency }}
+          </strike>
+        {% endif %}
+      </div>
+  
 
   <div class="custom-product-card__info">
     <!-- Product Title -->
@@ -60,19 +91,6 @@
     
       <span class="rating-value" style="margin-left: 4px; font-size: 0.875rem;">{{ rating }}</span>
     </div>
-    <!-- Pricing -->
-    <div class="custom-product-card__pricing">
-      <span class="custom-product-card__price">
-        {{ product.price | money_with_currency }}
-      </span>
-
-      {% if product.compare_at_price > product.price %}
-        <br>
-        <strike class="custom-product-card__compare-price">
-          {{ product.compare_at_price | money_with_currency }}
-        </strike>
-      {% endif %}
-    </div>
 
     <!-- Variant Dropdown -->
     <div class="custom-product-card__variants">
@@ -82,8 +100,9 @@
         <option value="1000ml">1000ml</option>
       </select>
     </div>
+    
   </div>
 </div> 
 
 
-
+ 
