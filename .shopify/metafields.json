@@ -12,6 +12,46 @@
         "name": "number_decimal",
         "category": "NUMBER"
       }
+    },
+    {
+      "key": "collection_mobile_banner",
+      "namespace": "custom",
+      "name": "Collection-mobile-banner",
+      "description": "",
+      "type": {
+        "name": "collection_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "mobile_collection_banner",
+      "namespace": "custom",
+      "name": "Mobile-collection-banner",
+      "description": "",
+      "type": {
+        "name": "collection_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "mobile_banner",
+      "namespace": "custom",
+      "name": "Mobile-banner",
+      "description": "",
+      "type": {
+        "name": "collection_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "mobile_image",
+      "namespace": "custom",
+      "name": "mobile image",
+      "description": "Mobile image for banner",
+      "type": {
+        "name": "file_reference",
+        "category": "REFERENCE"
+      }
     }
   ],
   "company": [],
@@ -109,6 +149,46 @@
       "type": {
         "name": "list.metaobject_reference",
         "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "material",
+      "namespace": "shopify",
+      "name": "Material",
+      "description": "Defines a product's primary material, such as cotton or wool",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "gearing-type",
+      "namespace": "shopify",
+      "name": "Gearing type",
+      "description": "Specifies the type of gear system in cycling products, like chain or belt",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "bicycle-features",
+      "namespace": "shopify",
+      "name": "Bicycle features",
+      "description": "Specifies special characteristics of a bike, e.g. puncture resistant tires, luggage rack",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "rating",
+      "namespace": "custom",
+      "name": "Rating",
+      "description": "",
+      "type": {
+        "name": "number_decimal",
+        "category": "NUMBER"
       }
     }
   ],

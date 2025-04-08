@@ -304,3 +304,26 @@
 .splide__slide.view-all:hover a {
   color: #fff;
 }
+
+/* === Rating === */
+.custom-product-card__rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #ffc107;
+  font-size: 14px;
+}
+
+.star {
+  color: green;
+}
+
+.star.filled {
+  color: #ffc107;
+}
+
+.rating-value {
+  font-size: 14px;
+  color: #444;
+  margin-left: 4px;
+}
