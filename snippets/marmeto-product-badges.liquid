@@ -1,0 +1,35 @@
+{% comment %}
+  Render the product badges
+
+  Accepts: 
+  - product: {Object} Product object
+  - current_variant: {Object} Selected variant object
+
+  Usage:
+  {% render 'marmeto-product-badges'
+    product: product,
+    current_variant: product.selected_or_first_available_variant
+  %}
+{% endcomment %}
+
+<div class="marmeto-product-badges">
+    {%- if current_variant.available == false -%}
+      <span class="marmeto-product-badge badge--soldout" aria-hidden="true">
+        Sold Out
+      </span>
+    {%- elsif current_variant.compare_at_price > current_variant.price and current_variant.available -%}
+      <span class="marmeto-product-badge badge--onsale" aria-hidden="true">
+        On Sale
+      </span>
+    {%- endif -%}
+  
+    {%- for tag in product.tags -%}
+      {%- if tag contains 'badge_' -%}
+        {%- assign badge_text = tag | split: '_' | last -%}
+        {%- assign badge_class = badge_text | handleize -%}
+        
+        <span class="marmeto-product-badge badge--{{ badge_class }}">{{ badge_text }}</span>
+        {%- break -%}
+      {%- endif -%}
+    {%- endfor -%}
+  </div>

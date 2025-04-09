@@ -1,0 +1,35 @@
+{% for block in section.blocks %}
+    {%  render "marmeto-product-card",product:block.settings.product,section_id:section.id %}
+    {% endfor%}}
+  <h2>This is product card section</h2>
+  
+
+
+{% schema %}
+ {
+  "name": "Marmeto product card",
+  "class": "marmeto-product-card",
+  "tag": "section",
+  "settings": [
+  
+  ],
+  "blocks": [
+    {
+        "name":"Add product",
+        "type": "product",
+        "settings": [
+            {
+                "type": "product",
+                "id": "product",
+                "label": "Product"
+            }
+        ]
+    }
+  ],
+  "presets": [
+   {
+    "name": "Marmeto product card"
+   }
+  ]
+ }
+{% endschema %}
