@@ -363,6 +363,17 @@
     },
     "marmeto_product_card_KHKTUP": {
       "type": "marmeto-product-card",
+      "blocks": {
+        "product_eqWrRF": {
+          "type": "product",
+          "settings": {
+            "product": "whitty-cheese-masti-khakhra"
+          }
+        }
+      },
+      "block_order": [
+        "product_eqWrRF"
+      ],
       "settings": {}
     }
   },
