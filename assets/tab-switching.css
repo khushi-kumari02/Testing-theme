@@ -168,7 +168,7 @@
 
 /* === Info Box === */
 .custom-product-card__info {
-  padding: 1.5rem 1rem 1rem;
+  padding: 0.5rem 1rem;
 }
 
 @media screen and (max-width: 749px) {
@@ -233,7 +233,6 @@
 
 /* === Pricing === */
 .custom-product-card__pricing {
-  margin-top: 0.5rem;
   font-size: 1.2rem;
   display: flex;
   justify-content: end;
@@ -241,7 +240,7 @@
   align-items: end;
   font-weight: 700;
   color: #000;
-  margin: 15px;
+  margin: 5px 12px;
   white-space: nowrap;
   line-height: 18px;
 }
