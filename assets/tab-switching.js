@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
         arrows: true,
         breakpoints: {
           1024: { perPage: 2 },
-          768: { perPage: 1 }
+          768: { perPage: 1}
         }
       }).mount();
       initializedSplides.add(splideEl.id);
