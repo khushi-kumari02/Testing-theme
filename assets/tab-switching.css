@@ -49,11 +49,12 @@
   justify-content: center;
   flex-wrap: wrap;
   gap: 1rem;
-  padding: 8px;
+  padding: 3px;
   border-radius: 25px;
-  background-color: #e9eef5;
+  background-color: #f0f2f4;
   max-width: 800px;
   margin: 0 auto 3rem;
+
 }
 
 .tab-button {
