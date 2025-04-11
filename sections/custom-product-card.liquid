@@ -71,10 +71,18 @@
     {%- endfor -%}
   </div>
 </div>
+
+{% comment %} section rendering api {% endcomment %}
 <button data-section="{{ section.id }}">
   Click me to duplicate the section
 </button>
-<div id="incoming-html"></div>
+<div id="incoming-html">
+  {% render 'custom-product',
+    product: product,
+    show_badge_on_sale: section.settings.show_badge_on_sale
+  %}
+
+</div>
 
 
 {% schema %}

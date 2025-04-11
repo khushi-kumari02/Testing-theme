@@ -1,0 +1,31 @@
+let formData = {
+    'items': [
+      {
+     'id': 46398179442908,
+     'quantity': 1
+     },
+      {
+     'id': 46398179475676,
+     'quantity': 1
+     }
+    ],
+   sections: "cart-icon-bubble"
+   };
+   
+   fetch(window.Shopify.routes.root + 'cart/add.js', {
+     method: 'POST',
+     headers: {
+       'Content-Type': 'application/json'
+     },
+     body: JSON.stringify(formData)
+   })
+   .then(response => {
+     return response.json();
+   }).then(response=>{
+   
+   document.querySelector('#cart-icon-bubble').innerHTML =response.sections['cart-icon-bubble']
+   })
+     
+   .catch((error) => {
+     console.error('Error:', error);
+   });

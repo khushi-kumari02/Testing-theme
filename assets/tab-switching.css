@@ -1,9 +1,30 @@
 /* === GENERAL WRAPPER === */
 .fresh-tabs-wrapper {
+  position: relative;
+  background-color:#e9eef5 ;
+  overflow: hidden;
   padding-block: 4rem;
-  background: #f7f9fc;
   font-family: 'Poppins', sans-serif;
 }
+
+/* Half background effect for top half */
+.fresh-tabs-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background-color: #fff;
+  z-index: 0;
+}
+
+/* Push section content above the background overlay */
+.fresh-tabs-wrapper > * {
+  position: relative;
+  z-index: 1;
+}
+
 
 /* === SECTION HEADING === */
 .fresh-tabs-heading {
