@@ -374,6 +374,7 @@
       "block_order": [
         "product_eqWrRF"
       ],
+      "disabled": true,
       "settings": {}
     }
   },
