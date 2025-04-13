@@ -41,6 +41,8 @@
 
   <script src="{{ 'product-info.js' | asset_url }}" defer="defer"></script>
   <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'custom-add-to-cart.js' | asset_url }}" defer="defer"></script>
+
   {%- if product.quantity_price_breaks_configured? -%}
     <script src="{{ 'show-more.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'price-per-item.js' | asset_url }}" defer="defer"></script>
@@ -87,6 +89,80 @@
 
           {%- for block in section.blocks -%}
             {%- case block.type -%}
+
+
+              {%- when 'card-demo' -%}
+
+              <div class="grid">
+                <h2 class="body-text">
+                  Coupon: {{ product.selected_or_first_available_variant.id }}
+                </h2>
+                <hr>
+                <h2 class="body-text">
+                  Price: {{ product.selected_or_first_available_variant.price | money }}
+                </h2>
+                {% comment %} <div class="button">
+                  Click me
+                </div> {% endcomment %}
+              </div>
+            {%- when 'card-demo' -%}
+
+              {% assign coupon_current_variant =  product.selected_or_first_available_variant %}
+              {% assign coupon_metafield_data = coupon_current_variant.metafields.custom.cc.value  %}
+
+              {% comment %} {{  coupon_current_variant.metafields.custom.cc  }} {% endcomment %}
+
+              <div id="scratch-card-{{ section.id }}"> 
+                 <div id="back">
+                    <h3 {{  coupon_metafield_data[1] }}>&nbsp;&nbsp; {{ coupon_metafield_data.first }} &nbsp;&nbsp;<i class="fa-regular fa-copy" style="color: #000000;"></i>
+                    </h3>
+                 </div>
+                 <img src="https://i.gifer.com/origin/1a/1af8d3b487b77085d5288814f151e1de_w200.gif" height="300" width='' loading="lazy">
+              </div>
+              <script>
+                
+                 let clickCount = 0;
+                 let h3Element = document.querySelector("h3");
+                 let canvas = document.querySelector("#scratch-card-{{ section.id }}");
+
+                 
+                 canvas.addEventListener("click", () => {
+                     clickCount++;
+                     if (clickCount === 2) {
+                         let h3Text = document.querySelector("h3").dataset.code;
+                         h3Element.classList.add("copied");
+                         navigator.clipboard.writeText(discount_coupon);
+                         let popup = document.createElement("div");
+                         popup.innerText = "Text copied to clipboard!";
+                         popup.style.position = "fixed";
+                         popup.style.top = "50%";
+                         popup.style.left = "0";
+                         popup.style.padding = "10px";
+                         popup.style.background = "#333";
+                         popup.style.color = "#fff";
+                         popup.style.transform = "translateX(-100%)";
+                         popup.style.transition = "transform 0.5s ease-out";
+                         document.body.appendChild(popup);
+                         setTimeout(() => {
+                             popup.style.transform = "translateX(0)";
+                         }, 100);
+                         setTimeout(() => {
+                             popup.style.transform = "translateX(-100%)";
+                             clickCount = 0;
+                         }, 3000);
+                     }
+                 });
+                 
+              </script>
+
+            {% when 'custom-button' %}
+              <div  class="custom-button" id="addtocart-{{ section.id }}">
+                <custom-add-to-cart data-price = "{{ product.selected_or_first_available_variant.price | money_without_currency }}" data-variant-id="{{ product.selected_or_first_available_variant.id }}">
+                  <button data-quantity="1" data-variant-id="{{ product.selected_or_first_available_variant.id }}">Add to cart</button>
+                </custom-add-to-cart>
+              </div>
+              
+
               {%- when '@app' -%}
                 {% render block %}
               {%- when 'text' -%}
@@ -730,6 +806,15 @@
   "tag": "section",
   "class": "section",
   "blocks": [
+    { "type": "custom-button",
+      "name": "Custom add to cart",
+      "limit": 1
+    },
+      {
+      "type": "card-demo",
+      "name":"Card demo",
+      "limit": 1
+      },
     {
       "type": "@app"
     },

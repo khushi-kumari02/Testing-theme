@@ -369,12 +369,18 @@
           "settings": {
             "product": "whitty-cheese-masti-khakhra"
           }
+        },
+        "product_feXLix": {
+          "type": "product",
+          "settings": {
+            "product": ""
+          }
         }
       },
       "block_order": [
-        "product_eqWrRF"
+        "product_eqWrRF",
+        "product_feXLix"
       ],
-      "disabled": true,
       "settings": {}
     }
   },

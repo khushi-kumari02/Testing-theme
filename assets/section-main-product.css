@@ -1492,3 +1492,75 @@ a.product__text {
     border: none;
   }
 }
+
+/* Coupon css */
+
+#scratch-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(238, 238, 255);
+  position: relative;
+  width: max-content;
+}
+
+#back {
+  position: absolute;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  max-height: 200px;
+  width: 200px;
+  border-radius: 9px;
+  background-color: rgba(238, 235, 235, 0.836);
+  box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.2), inset -6px -6px 10px 0 rgba(255, 255, 255, 0.829);
+}
+
+h3 {
+  border-style: dotted;
+  border-color: #267cee;
+  border: 0.1px 0.1px 1px;
+  width: 160px;
+color: black;
+  z-index: 2;
+background-color: rgb(255, 255, 255);
+}
+
+#gift {
+  height: 300px;
+}
+
+#scratch {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+  filter: drop-shadow(1px 1px 5px black);
+  z-index: 3;
+}
+
+#front,
+#scratch {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  cursor: grabbing;
+  border-radius: 0.3em;
+}
+
+h3.copied {
+  color: grey;
+  background-color: rgb(220, 220, 220);
+}
+
+img {
+z-index: 1;
+      animation: pop 0.7s linear 1;
+}
+
+@keyframes pop{
+50%  {transform: scale(2);}
+}

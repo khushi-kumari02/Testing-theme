@@ -186,6 +186,8 @@ if (!customElements.get('product-info')) {
             }
           };
 
+          updateSourceFromDestination('addtocart');
+          updateSourceFromDestination('scratch-card');
           updateSourceFromDestination('price');
           updateSourceFromDestination('Sku', ({ classList }) => classList.contains('hidden'));
           updateSourceFromDestination('Inventory', ({ innerText }) => innerText === '');
