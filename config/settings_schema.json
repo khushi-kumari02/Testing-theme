@@ -7,9 +7,27 @@
     "theme_documentation_url": "https://help.shopify.com/manual/online-store/themes",
     "theme_support_url": "https://support.shopify.com/"
   },
-  {
-    "name": "t:settings_schema.logo.name",
-    "settings": [
+  
+    {
+      "name" : "cart-free-shipping-bar",
+     "settings":[
+      {"type" : "text",
+      "id" : "cart-threshold",
+      "label" : "Cart threshold"
+     },
+     {
+      "type" : "richtext",
+      "id" : "success-message",
+      "label" : "Message",
+      "info" : "This will show up when progress will hit 100%"
+     }
+
+     ],
+    },
+
+    {
+      "name": "t:settings_schema.logo.name",
+     "settings": [
       {
         "type": "image_picker",
         "id": "logo",

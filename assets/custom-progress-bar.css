@@ -1,0 +1,25 @@
+.progress-bar {
+    height: 1rem;
+    margin: 2rem auto;
+    border: 1px solid;
+    border-radius: 1rem;
+  }
+  div.progress {
+    display: block;
+    border-radius: 1rem;
+    background: green;
+    height: 100%;
+    max-width: 100%;
+  }
+  .progress-bar-wrapper {
+    max-width: 30rem;
+    margin: auto;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+  .hide {
+    display: none;
+  }
+  .success-message {
+    color: green;
+  }

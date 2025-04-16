@@ -164,6 +164,30 @@
                     data-cascade
                     style="--animation-order: {{ forloop.index }};"
                   {% endif %}
+                  {% comment %} 
+                  {% assign loop = forloop | modulo:4%}
+                   {%  if loop == 0 %}
+                    Khushi
+                   {% endif %} {% endcomment %}
+
+
+                   {% if forloop.index != 0 %}
+                    {% assign image = forloop.index | modulo: 4 %}
+                    {% if image == 0 %}
+                      {% if collection.metafields.custom.editorial_image %}
+                        <div class="editorial-image-wrapper">
+                          <img
+                            src="{{ collection.metafields.custom.editorial_image | image_url: width: 800 }}"
+                            alt="{{ collection.title | escape }}"
+                            class="editorial-image"
+                            loading="lazy"
+                            height=""
+                            width="" 
+                          >
+                        </div>
+                      {% endif %}
+                    {% endif %}
+                  {% endif %}
                 >
                   {% render 'card-product',
                     card_product: product,

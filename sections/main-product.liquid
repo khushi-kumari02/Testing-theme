@@ -105,6 +105,11 @@
                   Click me
                 </div> {% endcomment %}
               </div>
+
+            {%- when 'pincode' -%}
+              {% render 'custom-pincode-checker' %}
+
+
             {%- when 'card-demo' -%}
 
               {% assign coupon_current_variant =  product.selected_or_first_available_variant %}
@@ -794,6 +799,8 @@
       endif
     -%}
 
+  
+
     <script type="application/ld+json">
       {{ product | structured_data }}
     </script>
@@ -808,6 +815,11 @@
   "blocks": [
     { "type": "custom-button",
       "name": "Custom add to cart",
+      "limit": 1
+    },
+    {
+      "type": "pincode",
+      "name":"Pincode checker",
       "limit": 1
     },
       {

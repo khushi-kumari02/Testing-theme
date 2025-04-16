@@ -1,0 +1,20 @@
+{% comment %}
+  Renders a progress bar.
+
+  Dependencies: 
+
+  Usage:
+  {% render 'custom-progress-bar',progress: %}
+{% endcomment %}
+
+<div class="free-shipping-bar">
+    <!-- Free shipping bar -->
+    <div class="grid progress-bar-wrapper">
+      <div class="progress-start">{{ minimum }}</div>
+      <div class="progress-bar">
+        <div class="progress" style="width:{{  progress }}%;"></div>
+      </div>
+      <div class="progress-end">{{ cart_threshold }}</div>
+    </div>
+    <div class="{% unless progress >= 100 %} hide {% endunless %} success-message">{{ success_message }}</div>
+  </div>

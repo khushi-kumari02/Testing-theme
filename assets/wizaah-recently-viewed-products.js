@@ -39,7 +39,7 @@ wizaah.RecentlyViewedProducts = (function() {
       	var blankDivElement = document.createElement('div');
         blankDivElement.innerHTML = content;
         
-        _this.container.querySelector('.recentlyviewed__container').innerHTML = blankDivEl2ement.querySelector('[data-section-type="wizaah-recently-viewed-products"] .recentlyviewed__container').innerHTML;
+        _this.container.querySelector('.recentlyviewed__container').innerHTML = blankDivElement.querySelector('[data-section-type="wizaah-recently-viewed-products"] .recentlyviewed__container').innerHTML;
 		_this.container.parentNode.style.display = 'block';
         
         _this.initSlider();
@@ -48,6 +48,8 @@ wizaah.RecentlyViewedProducts = (function() {
   }
   
   RecentlyViewedProducts.prototype.saveCurrentProduct = function() {
+
+  
     /*
      * - Check if the current product already exists, and if it does not, add it at the start
      * - Then, we save the current product into the local storage, by keeping only the 8 most recent

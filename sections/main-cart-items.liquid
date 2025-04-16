@@ -4,6 +4,8 @@
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 {{ 'component-discounts.css' | asset_url | stylesheet_tag }}
 {{ 'quantity-popover.css' | asset_url | stylesheet_tag }}
+{{ 'custom-progress-bar.css' | asset_url | stylesheet_tag }}
+
 
 {%- style -%}
   .section-{{ section.id }}-padding {
@@ -17,6 +19,7 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
 {%- endstyle -%}
 
 {%- unless settings.cart_type == 'drawer' -%}
@@ -79,8 +82,10 @@
 
               <tbody>
                 {%- for item in cart.items -%}
+                  
                   <tr class="cart-item" id="CartItem-{{ item.index | plus: 1 }}">
                     <td class="cart-item__media">
+                      
                       {% if item.image %}
                         {% comment %} Leave empty space due to a:empty CSS display: none rule {% endcomment %}
                         <a href="{{ item.url }}" class="cart-item__link" aria-hidden="true" tabindex="-1"> </a>
@@ -430,7 +435,19 @@
                       </div>
                     </td>
                   </tr>
+
                 {%- endfor -%}
+                {% assign current_cart_value = cart.total_price | money_without_currency | remove: ',' %}
+                {% assign threshold = settings.cart-threshold | times: 1 %}
+                {% assign diffrence = threshold | minus: current_cart_value %}
+                {% assign progress = current_cart_value | divided_by: threshold | times: 100 %}
+                {% render 'custom-progress-bar',
+                 progress: progress,
+                 threshold: settings.cart-threshold,
+                minimum: '0',
+                success_message: settings.success-message
+                %}
+
               </tbody>
             </table>
           {%- endif -%}
@@ -447,6 +464,9 @@
       >
         {{ 'accessibility.loading' | t }}
       </p>
+
+
+       
     </form>
   </div>
 </cart-items>

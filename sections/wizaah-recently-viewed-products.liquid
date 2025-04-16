@@ -26,7 +26,7 @@
                 {%- for product in search.results -%}
                   {%- if product.id == id -%}        	  
                     <div class="grid__item">
-                                        {{ product.title }} //Replace it with the product card snippet
+                                  {%  render 'marmeto-product-card' product: product, section_id: section.id  %}
                                     </div>
                     {%- break -%}
                   {%- endif -%}

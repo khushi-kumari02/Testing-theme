@@ -12,6 +12,10 @@
     "main": {
       "type": "main-product",
       "blocks": {
+        "pincode_9y7FyP": {
+          "type": "pincode",
+          "settings": {}
+        },
         "card_demo_Dbyzkc": {
           "type": "card-demo",
           "settings": {}
@@ -78,6 +82,7 @@
         }
       },
       "block_order": [
+        "pincode_9y7FyP",
         "card_demo_Dbyzkc",
         "vendor",
         "title",
@@ -131,7 +136,6 @@
       }
     }
   },
-  
   "order": [
     "main",
     "related-products",
