@@ -1,27 +1,52 @@
 {{ 'component-article-card.css' | asset_url | stylesheet_tag }}
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'section-main-blog.css' | asset_url | stylesheet_tag }}
-
 {%- style -%}
-  .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-  }
-
-  @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
+      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
     }
+    @media screen and (min-width: 750px) {
+      .section-{{ section.id }}-padding {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+    }
+    a.active {
+      border: 1px solid;
+      padding: 1rem;
+      border-radius: 10px;
   }
 {%- endstyle -%}
-
 {%- paginate blog.articles by 6 -%}
+  <ul
+    style="
+      display: flex;
+      gap: 1rem;
+      padding: 1rem;
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+      max-width: fit-content;
+    "
+  >
+    {% for tag in blog.all_tags %}
+      {% if tag contains 'category' %}
+        {% assign tag_text = tag | split: '--' | last %}
+        {% assign tag_handle = tag | handleize %}
+        <li>
+          <a
+            class="{% if request.path contains tag_handle %}active{% endif %}"
+            href="{{ blog.url }}/tagged/{{ tag_handle }}"
+          >
+            {{ tag_text }}
+          </a>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
   <div class="main-blog page-width section-{{ section.id }}-padding">
     <h1 class="title--primary{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
-      {{ blog.title | escape }}
+      Hey welcome to {{ blog.title | escape }}
     </h1>
-
     <div class="blog-articles {% if section.settings.layout == 'collage' %}blog-articles--collage{% endif %}">
       {%- for article in blog.articles -%}
         <div
@@ -43,13 +68,11 @@
         </div>
       {%- endfor -%}
     </div>
-
     {%- if paginate.pages > 1 -%}
       {%- render 'pagination', paginate: paginate -%}
     {%- endif -%}
   </div>
 {%- endpaginate -%}
-
 {% schema %}
 {
   "name": "t:sections.main-blog.name",
