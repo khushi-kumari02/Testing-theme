@@ -1,0 +1,9 @@
+<div class = "custom-bundle-product-card-wrapper isolate">
+    {% render 'responsive-picture', desktopImage: product.featured_image %}
+
+    <div class="custom-bundle-product-card__price-tag">
+        <div class = "ribbon">{{  product.price | money_with_currency }}</div> 
+
+    </div>
+
+</div>

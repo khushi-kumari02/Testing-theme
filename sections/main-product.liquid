@@ -37,11 +37,13 @@
         padding-bottom: {{ section.settings.padding_bottom }}px;
       }
     }
+
   {%- endstyle -%}
 
   <script src="{{ 'product-info.js' | asset_url }}" defer="defer"></script>
   <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
   <script src="{{ 'custom-add-to-cart.js' | asset_url }}" defer="defer"></script>
+
 
   {%- if product.quantity_price_breaks_configured? -%}
     <script src="{{ 'show-more.js' | asset_url }}" defer="defer"></script>
@@ -91,6 +93,8 @@
             {%- case block.type -%}
 
 
+
+
               {%- when 'card-demo' -%}
 
               <div class="grid">
@@ -116,6 +120,8 @@
               {% assign coupon_metafield_data = coupon_current_variant.metafields.custom.cc.value  %}
 
               {% comment %} {{  coupon_current_variant.metafields.custom.cc  }} {% endcomment %}
+
+              {% comment %} added coupon code {% endcomment %}
 
               <div id="scratch-card-{{ section.id }}"> 
                  <div id="back">
@@ -798,6 +804,32 @@
         assign seo_media = product.featured_media
       endif
     -%}
+
+    {% comment %} Bundles product {% endcomment %}
+
+    {% comment %} {% if product.metafields.custom.bundles != blank %}
+      <div class="bundle-products">
+        <h3>Bundle & Save</h3>
+        <form id="bundle-form">
+          {% for bundled_product in product.metafields.custom.bundles.value %}
+            <div class="bundle-item">
+              <label>
+                <input
+                  type="checkbox"
+                  class="bundle-checkbox"
+                  value="{{ bundled_product.variants.first.id }}"
+                  data-title="{{ bundled_product.title }}"
+                >
+                <img src="{{ bundled_product.featured_image | image_url: width: 100 }}" alt="{{ bundled_product.title }}" width="100" />
+                <strong>{{ bundled_product.title }}</strong><br />
+                <span>{{ bundled_product.price | money }}</span>
+              </label>
+            </div>
+          {% endfor %}
+        </form>
+      </div>
+    {% endif %}   {% endcomment %}
+    
 
   
 

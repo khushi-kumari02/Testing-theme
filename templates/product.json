@@ -111,6 +111,13 @@
         "padding_bottom": 12
       }
     },
+    "custom_bundle_TELEtJ": {
+      "type": "custom-bundle",
+      "settings": {
+        "title": "Frequently Bought Together",
+        "base_product": "citrus-blue-crush"
+      }
+    },
     "related-products": {
       "type": "related-products",
       "settings": {
@@ -138,6 +145,7 @@
   },
   "order": [
     "main",
+    "custom_bundle_TELEtJ",
     "related-products",
     "wizaah_recently_viewed_products_nWTtPT"
   ]

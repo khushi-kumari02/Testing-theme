@@ -1,0 +1,127 @@
+{{ 'custom-bundle-product-card.css' | asset_url | stylesheet_tag }}
+{{ 'section-bundle-product-card.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'section-bundle-product-card.js' | asset_url }}" defer></script>
+
+
+{% liquid
+  assign base_product = product
+  assign metafield_products = base_product.metafields.custom.add_ons.value
+%}
+
+<div class="custom-bundle-wrapper page-width">
+  {%- if section.settings.title != blank -%}
+    <h2>{{ section.settings.title | escape }}</h2>    
+  {%- endif -%}
+
+  <div class="grid grid--2-col-desktop">
+    <!-- Second half: Used for Addons -->
+
+    <bundle-add-to-cart class="grid__item padding-md">
+      <div class="custom-bundle__add-on-container grid">
+        {%- for product in metafield_products -%}
+          <bundle-product-card class="custom-bundle__add-on-product-card grid__item">
+            <div class="custom-bundle__add-on-image-wrapper media media--circle">
+              {% render 'responsive-picture', desktopImage: product.featured_image %}
+            </div>
+            <div class="custom-bundle__add-on-info-wrapper">
+              <label for="styledCheckbox--{{ product.selected_or_first_available_variant.id }}">
+                {{- product.title -}}
+              </label>
+              <input
+                type="checkbox"
+                id="styledCheckbox--{{ product.selected_or_first_available_variant.id }}"
+                value="{{ product.selected_or_first_available_variant.id }}"
+              >
+            </div>
+          </bundle-product-card>
+        {%- endfor -%}
+      </div>
+      {%- assign product_form_id = 'product-form-' | append: section.id -%}
+
+      <div>
+        {%- form 'product',
+          base_product,
+          id: product_form_id,
+          class: 'form',
+          novalidate: 'novalidate',
+          data-type: 'add-to-cart-form'
+        -%}
+          <input
+            type="hidden"
+            name="id"
+            value="{{ base_product.selected_or_first_available_variant.id }}"
+            {% if base_product.selected_or_first_available_variant.available == false
+              or base_product.selected_or_first_available_variant == null
+            %}
+              disabled
+            {% endif %}
+            class="product-variant-id"
+          >
+
+          <div class="product-form__buttons">
+            {%- liquid
+              assign check_against_inventory = true
+              if base_product.selected_or_first_available_variant.inventory_management != 'shopify' or base_product.selected_or_first_available_variant.inventory_policy == 'continue'
+                assign check_against_inventory = false
+              endif
+              if base_product.selected_or_first_available_variant.quantity_rule.min > base_product.selected_or_first_available_variant.inventory_quantity and check_against_inventory
+                assign quantity_rule_soldout = true
+              endif
+            -%}
+            <button
+              id="ProductSubmitButton-{{ section.id }}"
+              type="submit"
+              name="add"
+              class="product-form__submit button button--full-width"
+              {% if base_product.selected_or_first_available_variant.available == false
+                or base_product.selected_or_first_available_variant == null
+              %}
+                disabled
+              {% endif %}
+            >
+              <span>
+                {%- if base_product.selected_or_first_available_variant == null -%}
+                  {{ 'products.product.unavailable' | t }}
+                {%- elsif base_product.selected_or_first_available_variant.available == false
+                  or quantity_rule_soldout
+                -%}
+                  {{ 'products.product.sold_out' | t }}
+                {%- else -%}
+                  {{ 'products.product.add_to_cart' | t }}
+                {%- endif -%}
+              </span>
+              {%- render 'loading-spinner' -%}
+            </button>
+          </div>
+        {%- endform -%}
+    </div>
+    </bundle-add-to-cart>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Custom bundle",
+  "tag": "section",
+  "class": "custom-bundle",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Frequently Bought Together"
+    },
+    {
+      "type": "product",
+      "id": "base_product",
+      "label": "Product",
+      "info": "Add a base product, addons will be coming via metafield."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom bundle"
+    }
+  ]
+}
+{% endschema %}

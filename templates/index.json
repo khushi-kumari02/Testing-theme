@@ -381,7 +381,15 @@
         "product_eqWrRF",
         "product_feXLix"
       ],
+      "disabled": true,
       "settings": {}
+    },
+    "custom_bundle_inMtkD": {
+      "type": "custom-bundle",
+      "name": "Custom bundle",
+      "settings": {
+        "base_product": "mahakool-sharbat"
+      }
     }
   },
   "order": [
@@ -394,6 +402,7 @@
     "our_journals_mtR6qf",
     "tab_switching_Utg34r",
     "custom_product_card_cDf3yb",
-    "marmeto_product_card_KHKTUP"
+    "marmeto_product_card_KHKTUP",
+    "custom_bundle_inMtkD"
   ]
 }

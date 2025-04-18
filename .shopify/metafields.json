@@ -240,6 +240,26 @@
         "name": "list.product_reference",
         "category": "REFERENCE"
       }
+    },
+    {
+      "key": "bundles",
+      "namespace": "custom",
+      "name": "Bundles",
+      "description": "This is bundle products",
+      "type": {
+        "name": "list.product_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "add_ons",
+      "namespace": "custom",
+      "name": "Add_ons",
+      "description": "",
+      "type": {
+        "name": "list.product_reference",
+        "category": "REFERENCE"
+      }
     }
   ],
   "variant": [

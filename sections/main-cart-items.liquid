@@ -28,6 +28,7 @@
 
 <script src="{{ 'quantity-popover.js' | asset_url }}" defer="defer"></script>
 
+
 <cart-items class="gradient color-{{ section.settings.color_scheme }} isolate{% if cart == empty %} is-empty{% else %} section-{{ section.id }}-padding{% endif %}">
   <div class="page-width">
     <div class="title-wrapper-with-link">
@@ -464,10 +465,10 @@
       >
         {{ 'accessibility.loading' | t }}
       </p>
-
-
        
     </form>
+    <button id="clear-bundle-btn">Clear Bundle</button>
+
   </div>
 </cart-items>
 
