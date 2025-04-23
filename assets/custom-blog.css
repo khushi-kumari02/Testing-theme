@@ -1,0 +1,184 @@
+
+    .blog-layout-section {
+      padding: 40px 0;
+    }
+  
+    .blog-layout-grid {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 30px;
+    }
+  
+    .blog-sidebar {
+      display: flex;
+      flex-direction: column;
+    }
+  
+    .blog-main .blog-articles {
+      display: grid;
+      gap: 30px;
+    }
+  
+    .featured-product {
+      margin-bottom: 30px;
+    }
+  
+    .featured-product h3 {
+      font-size: 24px;
+      margin-bottom: 15px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+  
+    .featured-product div {
+      display: flex;
+      align-items: center;
+    }
+  
+    .featured-product img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 5px;
+      margin-right: 15px;
+    }
+  
+    .featured-product h4 {
+      font-size: 16px;
+      margin: 0;
+      font-weight: 500;
+      text-transform: uppercase;
+    }
+    .blog-article {
+        margin-bottom: 40px;
+      }
+      
+      .article-image img {
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+        margin-bottom: 15px;
+      }
+      
+      .article-title {
+        font-size: 22px;
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
+      
+      .article-title a {
+        color: #000;
+        text-decoration: none;
+      }
+      
+      .article-excerpt {
+        color: #555;
+        font-size: 16px;
+      }
+      .blog-articles {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+      }
+      
+      .custom-blog-card {
+        display: flex;
+        flex-direction: column;
+        background-color: #fff;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      }
+      
+      .blog-card-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 16px 16px 0 0;
+      }
+      
+      .blog-card-content {
+        padding: 20px;
+      }
+      
+      .blog-card-title {
+        font-size: 18px;
+        font-weight: 700;
+        margin: 0 0 8px;
+      }
+      
+      .blog-card-title a {
+        text-decoration: none;
+        color: #000;
+      }
+      
+      .blog-card-meta {
+        font-size: 13px;
+        color: #777;
+        margin-bottom: 10px;
+      }
+      
+      .blog-card-excerpt {
+        font-size: 14px;
+        color: #555;
+      }
+
+      /* 👇 Add this at the bottom of your CSS file */
+@media screen and (max-width: 768px) {
+    .blog-layout-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .blog-sidebar {
+      order: 2; /* Sidebar will come AFTER main content on mobile */
+      margin-top: 30px;
+    }
+  
+    .blog-main {
+      order: 1;
+    }
+  
+    .blog-articles {
+      grid-template-columns: 1fr; /* Blog cards full width on mobile */
+      gap: 20px;
+    }
+  
+    .blog-card-title {
+      font-size: 16px;
+    }
+  
+    .blog-card-excerpt {
+      font-size: 14px;
+    }
+  
+    .featured-product {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .featured-product div {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .featured-product img {
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+  
+    .featured-product h4 {
+      font-size: 14px;
+    }
+  
+    .blog-card-content {
+      padding: 16px;
+    }
+  }
+  .blog-sidebar {
+    order: 1;
+  }
+  .blog-main {
+    order: 2;
+  }
+    
+                  

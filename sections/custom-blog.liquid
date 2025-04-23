@@ -1,0 +1,117 @@
+{{ 'custom-blog.css' | asset_url | stylesheet_tag }}
+
+<section class="blog-layout-section">
+  <div class="page-width">
+    <div class="blog-layout-grid">
+
+      {% render 'breadcrumb' %}
+      <!-- News header -->
+      <div class="custom-blog-header">
+        <h1 class="custom-blog-title">{{ blog.title }}</h1>
+      </div>
+
+      <!-- SIDEBAR -->
+      <aside class="blog-sidebar">
+        {% render 'blog-categories' %}
+
+        <!-- Featured Product from Product Picker -->
+        {% assign selected_product = section.settings.product %}
+        {% if selected_product != blank %}
+          <div class="featured-product">
+            <h3>Featured Product</h3>
+            <div>
+              <h4>{{ selected_product.title }}</h4>
+              <img
+                src="{{ selected_product.featured_image | image_url: width: 80 }}"
+                alt="{{ selected_product.title }}"
+                loading="lazy"
+                width="80"
+                height="auto"
+              />
+            </div>
+          </div>
+        {% endif %}
+
+        {% render 'sale-products' %}
+        {% render 'blog-tags' %}
+        {% render 'recent-posts' %}
+      </aside>
+
+      <!-- MAIN BLOG CONTENT -->
+      <div class="blog-main">
+        {% if blog.articles.size > 0 %}
+          <div class="blog-articles">
+            {% for article in blog.articles limit: 4 %}
+
+              <article class="blog-article">
+                {% if article.image %}
+                  <div class="article-image">
+                    <a href="{{ article.url }}">
+                      <img src="{{ article.image | image_url: width: 800 }}" alt="{{ article.title }}" loading="lazy" />
+                    </a>
+                  </div>
+                {% endif %}
+
+                <h2 class="article-title">
+                  <a href="{{ article.url }}">{{ article.title }}</a>
+                </h2>
+
+                <div class="article-excerpt">
+                  {{ article.excerpt | strip_html | truncate: 160 }}
+                </div>
+              </article>
+
+            {% endfor %}
+          </div>
+        {% else %}
+          <p>No blog posts found.</p>
+        {% endif %}
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Custom blog",
+  "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Select Product"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "sale_product",
+      "name": "Sale Product",
+      "limit": 2,
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Select Product"
+        },
+        {
+          "type": "text",
+          "id": "custom_price",
+          "label": "Custom Price (e.g., Rs. 1,400.00)",
+          "default": "Rs. 1,400.00"
+        },
+        {
+          "type": "text",
+          "id": "custom_discount_price",
+          "label": "Custom Discount Price (e.g., Rs. 121,400.00)",
+          "default": "Rs. 121,400.00"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom blog"
+    }
+  ]
+}
+{% endschema %}

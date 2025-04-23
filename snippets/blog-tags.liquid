@@ -1,0 +1,63 @@
+ <div class="blog-sidebar-section">
+    <h3 class="blog-sidebar-heading">Blog Tags</h3>
+    <div class="tag-list">
+      {% for tag in blog.all_tags %}
+        {% if tag contains 'category--' %}
+          {% assign tag_text = tag | split: '--' | last %}
+          {% assign tag_handle = tag | handleize %}
+          <a
+            class="tag-button {% if request.path contains tag_handle %}active{% endif %}"
+            href="{{ blog.url }}/tagged/{{ tag_handle }}"
+          >
+            {{ tag_text }}
+          </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+  <style>
+    .blog-sidebar-section {
+        background-color: #fff;
+        padding: 20px 20px 16px;
+        margin-bottom: 25px;
+        border-radius: 12px;
+        overflow: hidden;
+      }
+      
+      .blog-sidebar-heading {
+        background-color: #f4f4f4;
+        padding: 12px 16px;
+        margin: -20px -20px 16px;
+        font-size: 16px;
+        font-weight: 700;
+        color: #000;
+        border-radius: 12px;
+        letter-spacing: 0.5px;
+      }
+  
+   .tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .tag-button {
+    display: inline-block;
+    padding: 6px 14px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    text-decoration: none;
+    color: #333;
+    font-size: 13px;
+    background-color: #fff;
+    transition: all 0.3s ease;
+    text-transform: capitalize;
+  }
+  
+  .tag-button:hover,
+  .tag-button.active {
+    background-color: #333;
+    color: #fff;
+    border-color: #333;
+  }
+</style>    

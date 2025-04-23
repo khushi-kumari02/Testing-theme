@@ -1,0 +1,89 @@
+<div class="blog-sidebar-section">
+  <h3 class="blog-sidebar-heading">Sale Products</h3>
+
+  {% for block in section.blocks %}
+    {% if block.type == 'sale_product' %}
+      {% assign product = block.settings.product %}
+      {% if product != blank %}
+        <a href="{{ product.url }}">
+        <div class="sale-product">
+          <img
+            src="{{ product.featured_image | image_url: width: 80 }}"
+            alt="{{ product.title }}"
+            width="80"
+            height="80"
+            loading="lazy"
+          />
+          <div class="sale-product-info">
+            <h4>{{ product.title }}</h4>
+            <p class="price">
+              From {{ block.settings.custom_price }} <br />
+              <span class="price-discount">{{ block.settings.custom_discount_price }}</span>
+            </p>
+          </div>
+        </div>
+        </a>
+
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+</div>
+<style>
+    .blog-sidebar-section {
+      background-color: #fff;
+      padding: 20px 20px 16px;
+      margin-bottom: 25px;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    
+    .blog-sidebar-heading {
+      background-color: #f4f4f4;
+      padding: 12px 16px;
+      margin: -20px -20px 16px;
+      font-size: 16px;
+      font-weight: 700;
+      color: #000;
+      border-radius: 12px;
+      letter-spacing: 0.5px;
+    }
+
+  .sale-product {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.sale-product img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  margin-right: 15px;
+  border-radius: 5px;
+  flex-shrink: 0;
+}
+
+.sale-product-info h4 {
+  font-size: 15px;
+  margin: 0 0 5px;
+  font-weight: 500;
+  text-transform: none;
+  color: #000;
+}
+
+.sale-product-info .price {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.sale-product-info .price-discount {
+  color: #e91e63;
+  font-weight: 600;
+  text-decoration: line-through;
+  display: block;
+  font-size: 13px;
+}
+
+  </style>

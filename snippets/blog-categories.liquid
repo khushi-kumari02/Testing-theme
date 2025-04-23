@@ -1,0 +1,16 @@
+   <div class="blog-sidebar-section">
+    <h3 class="blog-sidebar-heading">Blog Categories</h3>
+    <ul class="blog-sidebar-list">
+      {% assign approved_tags = "Fashion,Style" | split: "," %}
+      {% assign active_tag = current_tags | first %}
+  
+      {% for tag in approved_tags %}
+        <li>
+          <a 
+            href="{{ blogs.news.url }}/tagged/{{ tag | handleize }}"
+            class="{% if tag == active_tag %}active-tag{% endif %}"
+          >- {{ tag }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>

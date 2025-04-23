@@ -386,7 +386,6 @@
     },
     "custom_bundle_inMtkD": {
       "type": "custom-bundle",
-      "name": "Custom bundle",
       "settings": {
         "base_product": "mahakool-sharbat"
       }
